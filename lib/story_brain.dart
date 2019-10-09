@@ -13,6 +13,8 @@
 // TODO: Step 12 - Run the app and try to figure out what code you need to add to this file to make the story change when you press on the choice buttons.
 
 // TODO: Step 13 -  Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
+
+
 import 'story.dart';
 
 class StoryBrain {
@@ -76,5 +78,14 @@ class StoryBrain {
 
   void restart() {
     storyNumber = 0;
+  }
+
+  bool buttonShouldBeVisible(){
+    if(storyNumber == 0 || storyNumber == 1 || storyNumber == 2){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

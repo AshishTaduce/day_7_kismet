@@ -75,18 +75,21 @@ class _KismetAppState extends State<KismetApp> {
               Expanded(
                 flex: 2,
                 //TODO: Step 14 - Use a Flutter Visibility Widget to wrap this FlatButton and set the "visible" property of the Visibility Widget to equal the output from the buttonShouldBeVisible() method in the storyBrain.
-                child: FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      story.nextStory(2);
-                    });
-                    //Choice 2 made by user.
-                  },
-                  color: Colors.blue,
-                  child: Text(
-                    story.getChoice2(),
-                    style: TextStyle(
-                      fontSize: 20.0,
+                child: Visibility(
+                  visible: story.buttonShouldBeVisible(),
+                  child: FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        story.nextStory(2);
+                      });
+                      //Choice 2 made by user.
+                    },
+                    color: Colors.blue,
+                    child: Text(
+                      story.getChoice2(),
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),
