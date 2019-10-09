@@ -15,52 +15,66 @@
 // TODO: Step 13 -  Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
 import 'story.dart';
 
-class StoryBrain{
+class StoryBrain {
   int storyNumber = 0;
-  List <Story> storyData = [
+  List<Story> storyData = [
     Story(
         'You have gone on a trek with your friends but got lost in the forest. You don\'t have any devices and it is now pitch dark. You are wandering in hope to see another human, and suddenly you see a wooden cabin with some fire light. Would you go and knock the door of the cabin?".',
         'I\'ll go to the cabin and ask for help',
-
         'I\'ll ignore the cabin because who possibly can live in the middle of a Jungle'),
     Story(
-
         'A guy with plastic apron covered with blood and a huge knife in his hand opens the door',
-         'Ask him if that\'s human blood.',
-         'Ignore the attire and ask if you can get some water'),
+        'Ask him if that\'s human blood.',
+        'Ignore the attire and ask if you can get some water'),
     Story(
         'He tells you it is Human blood of a very bad person',
-         'You believe him and ask if he can help you?',
+        'You believe him and ask if he can help you?',
         'You panic, and run away back to jungle'),
     Story(
-
         'You are trapped in the jungle trying to find a way out, but it is end of your journey as a poisonous snake bites you and you die painfully',
-       'Restart',
+        'Restart',
         ''),
     Story(
-
         'He goes inside, you act smart and try to peek in the cabin. You follow the blood trail to the back of cabin and discover one of your friends lying there. As you turn to run, a sharp pain arises in your shoulder and everything goes dark. You have escaped from this world',
         'Restart',
         ''),
     Story(
-
         'He gives you sleeping bag, put a bonfire to keep you warm, gives you food and you both bond over anatomy of human body. In morning he takes you out of jungle and promises you to invite for his next \'hunt\'',
-       'Restart',
+        'Restart',
         '')
   ];
-  String getStory()=> storyData[storyNumber].storyTitle;
-  String getChoice1()=> storyData[storyNumber].choice1;
-  String getChoice2()=> storyData[storyNumber].choice2;
-  void nextStory(int choiceNumber){
-    if (storyNumber == 3 ||storyNumber == 5 || storyNumber == 4){
+  String getStory() => storyData[storyNumber].storyTitle;
+  String getChoice1() => storyData[storyNumber].choice1;
+  String getChoice2() => storyData[storyNumber].choice2;
+  void nextStory(int choiceNumber) {
+    if (storyNumber == 3 || storyNumber == 5 || storyNumber == 4) {
       restart();
+    } else if (storyNumber == 0) {
+      if (choiceNumber == 1) {
+        storyNumber = 1;
+      } else {
+        storyNumber = 3;
+      }
     }
-    else {
-      storyNumber++;
+
+    else if (storyNumber == 1) {
+      if (choiceNumber == 1) {
+        storyNumber = 2;
+      } else {
+        storyNumber = 4;
+      }
+    }
+
+    else if (storyNumber == 2) {
+      if (choiceNumber == 1) {
+        storyNumber = 5;
+      } else {
+        storyNumber = 3;
+      }
     }
   }
-  void restart (){
+
+  void restart() {
     storyNumber = 0;
-  }}
-
-
+  }
+}
