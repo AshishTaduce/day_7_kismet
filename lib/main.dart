@@ -45,7 +45,7 @@ class KismetAppState extends State<KismetApp> {
                 child: Center(
                   child: Text(
                     //StoryBrain().getStory(),
-                    story.getStory(),
+                    currentStory.story,
                     style: TextStyle(
                       fontSize: 25.0,
                     ),
@@ -57,14 +57,14 @@ class KismetAppState extends State<KismetApp> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      //story.nextStory(1);
+                      index = currentStory.choice1_result;
                     });
                     //Choice 1 made by user.
                     //TODO: Step 9 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user, do the same for choice2 button and pass number 2 in that case
                   },
                   color: Colors.red,
                   child: Text(
-                    story.getChoice1(),
+                    currentStory.choice1,
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -82,13 +82,14 @@ class KismetAppState extends State<KismetApp> {
                   child: FlatButton(
                     onPressed: () {
                       setState(() {
-                        //story.nextStory(2);
+                        index = currentStory.choice2_result;
+
                       });
                       //Choice 2 made by user.
                     },
                     color: Colors.blue,
                     child: Text(
-                      story.getChoice2(),
+                      currentStory.choice2,
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
