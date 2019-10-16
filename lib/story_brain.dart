@@ -46,7 +46,7 @@ class StoryData{
     "story": "You are trapped in the jungle trying to find a way out, but it is end of your journey as a poisonous snake bites you and you die painfully",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": null,
+    "choice2": " ",
     "choice2_result": null
    },
   {
@@ -54,7 +54,7 @@ class StoryData{
     "story": "He goes inside, you act smart and try to peek in the cabin. You follow the blood trail to the back of cabin and discover one of your friends lying there. As you turn to run, a sharp pain arises in your shoulder and everything goes dark. You have escaped from this world",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": null,
+    "choice2": " ",
     "choice2_result": null
    },
   {
@@ -62,7 +62,7 @@ class StoryData{
     "story": "He gives you sleeping bag, put a bonfire to keep you warm, gives you food and you both bond over anatomy of human body. In morning he takes you out of jungle and promises you to invite for his next 'hunt'",
     "choice1": "Restart",
     "choice1_result": 0,
-    "choice2": null,
+    "choice2": " ",
     "choice2_result": null
    }
 ]''';
@@ -80,21 +80,16 @@ class StoryData{
 
 }
 
-class StoryBrain {
-
-  List<Story> allStories = StoryData().stories;
-  Story currentStory;
-  String getStory() => currentStory.story;
-  String getChoice1() => currentStory.choice1;
-  String getChoice2() => currentStory.choice2;
-  int choice1() => currentStory.choice1_result;
-  int choice2() => currentStory.choice2_result;
-
-}
-
 class Init extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
   }
+}
+
+bool ending (int index){
+  if (index == 3 || index == 4 || index == 5){
+    return false;
+  }
+  else return true;
 }
