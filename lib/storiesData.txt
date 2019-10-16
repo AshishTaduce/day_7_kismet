@@ -1,25 +1,7 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-
-class Story {
-  int storyNumber;
-  String story;
-  String choice1;
-  int choice1_result;
-  String choice2;
-  int choice2_result;
-
-  Story(this.storyNumber, this.story, this.choice1, this.choice1_result,this.choice2, this.choice2_result,);
-
-}
-
-class StoryData{
-  List<Story> stories = [];
-  static String storyJSON = '''
-  [
+[
   {
     "storyNumber": 0,
-    "story": "You have gone on a trek with your friends but got lost in the forest. You don't have any devices and it is now pitch dark. You are wandering in hope to see another human, and suddenly you see a wooden cabin with some fire light. Would you go and knock the door of the cabin?.",
+    "story": "You have gone on a trek with your friends but got lost in the forest. You don't have any devices and it is now pitch dark. You are wandering in hope to see another human, and suddenly you see a wooden cabin with some fire light. Would you go and knock the door of the cabin?\".",
     "choice1": "I'll go to the cabin and ask for help",
     "choice1_result": 1,
     "choice2": "I'll ignore the cabin because who possibly can live in the middle of a Jungle",
@@ -65,36 +47,4 @@ class StoryData{
     "choice2": null,
     "choice2_result": null
    }
-]''';
-
-  List data = jsonDecode(storyJSON);
-
-  StoryData() {
-    data.forEach((storyMap) {
-
-      stories.add(Story(storyMap['storyNumber'], storyMap['story'],
-        storyMap['choice1'], storyMap['choice1_result'],
-        storyMap['choice2'],storyMap['choice2_result'],));
-    });
-  }
-
-}
-
-class StoryBrain {
-
-  List<Story> allStories = StoryData().stories;
-  Story currentStory;
-  String getStory() => currentStory.story;
-  String getChoice1() => currentStory.choice1;
-  String getChoice2() => currentStory.choice2;
-  int choice1() => currentStory.choice1_result;
-  int choice2() => currentStory.choice2_result;
-
-}
-
-class Init extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+]
